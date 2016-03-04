@@ -1,5 +1,16 @@
 Rails.application.routes.draw do
   devise_for :users
 
-  root to: 'main#index'
+  resources :conversations do
+    resources :messages
+
+    collection do
+      get :inbox
+      get :all, action: :index
+      get :sent
+      get :trash
+    end
+  end
+
+  root to: 'conversations#index'
 end
