@@ -1,5 +1,7 @@
 <h1>Conversations</h1>
 
+<%= link_to "New Conversation", new_conversation_path %>
+
 <hr />
 
 Inbox (<%= current_user.mailbox.inbox.unread(current_user).count %>) |
